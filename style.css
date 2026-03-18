@@ -45,6 +45,28 @@ body{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
 }
 
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* espaço pra direita pro ícone */
+    height: 30px;
+    
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+}
+
 .container1 h1{
     font-size: 36px;
     text-align: center;
@@ -86,11 +108,13 @@ body{
     border-radius: 1%;
 }
 
-.input-box, .btngerar {
+.container button{
     position: relative;
-    width: 100%;
+    width: 60%;
     height: 30px;
-    margin: 40px 0;
+    margin-top: 30px;
+    margin-left: 20%;
     box-sizing: border-box;
     border-radius: 10px;
 }
+
