@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    background: url(img/backworking.png);
+    background-size: cover;
+    padding: 40px 20px;
+}
+
+/* Container centralizado e com largura máxima */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Cabeçalho */
+.header {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.name {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    list-style: none;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo das Seções */
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    color: #2e223b;
+    text-transform: uppercase;
+}
+
+/* Itens de Experiência e Educação */
+.experience-item, .education-item {
+    margin-bottom: 20px;
+}
+
+.item-title {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Listas */
+ul {
+    padding-left: 20px;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    list-style-type: square;
+}
+
+.task-list li {
+    margin-bottom: 5px;
+}
