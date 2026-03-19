@@ -1,0 +1,71 @@
+from django.db import models
+
+# Create your models here.
+class Phone(models.Model):
+    dd = models.CharField(max_length=2,null=False,blank=False)
+    number = models.CharField(max_length=9,null=False,blank=False)
+
+    def __str__(self):
+        return f'{self.dd} {self.number}'
+
+
+class Address(models.Model):
+    uf = models.CharField(max_length=2,null=False,blank=False)
+    city = models.CharField(max_length=100,null=False,blank=False)
+
+    def __str__(self):
+        return f'{self.city} - {self.uf}'
+
+class Curriculo(models.Model):
+    first_name = models.CharField(max_length=100,null=False,blank=False)
+    last_name = models.CharField(max_length=100,null=False,blank=False)
+    phone_number = models.ForeignKey(Phone,null=False,blank=False,on_delete=models.CASCADE)
+    email = models.EmailField(max_length=100,null=False,blank=False)
+    address = models.ForeignKey(Address,null=False,blank=False,on_delete=models.CASCADE)
+    linkedin = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    objective = models.TextField(max_length=255,blank=False, null=False)
+    resume_professional = models.TextField(max_length=100,blank=True, null=True)
+    ability = models.TextField(max_length=255,blank=True, null=True)
+    curse_certifications = models.TextField(max_length=255,blank=True, null=True)
+    Languages = models.CharField(max_length=100,blank=True, null=True)
+
+
+
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
+class AcademicEducation(models.Model):
+    curriculo = models.ForeignKey(
+        Curriculo,
+        on_delete=models.CASCADE,
+        related_name='educations'
+    )
+
+    course = models.CharField(max_length=200)
+    institution = models.CharField(max_length=200)
+    start_year = models.IntegerField()
+    end_year = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.course} {self.institution} {self.start_year} {self.end_year}'
+
+
+class ProfessionalExperience(models.Model):
+    curriculo = models.ForeignKey(
+        Curriculo,
+        on_delete=models.CASCADE,
+        related_name='experiences'
+    )
+    company_name = models.CharField(max_length=200)
+    role = models.CharField(max_length=200)
+    stat_year = models.IntegerField()
+    end_year = models.IntegerField(null=True, blank=True)
+    activities = models.TextField()
+
+    def __str__(self):
+        return f'{self.role} - {self.company_name}'
+
+
+
