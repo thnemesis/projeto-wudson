@@ -1,4 +1,4 @@
-from django.db.models.expressions import result
+
 from django.shortcuts import render,redirect
 from .models import Curriculo
 from .forms import CurriculoForm
@@ -9,7 +9,7 @@ def index(request):
 
 
 def create(request):
-    if request.method == 'POST':
+    '''if request.method == 'POST':
         form = CurriculoForm(request.POST)
         print('//////////////////////////////////////////////////////////////')
         print(form.is_valid())
@@ -24,8 +24,8 @@ def create(request):
     else:
         form = CurriculoForm()
 
-    return render(request,'create.html',{'form':form})
-
+    return render(request,'create.html',{'form':form})'''
+    return render(request,'cadrastro.html',)
 
 def get_list(request):
     resumes = Curriculo.objects.all()

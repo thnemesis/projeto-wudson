@@ -1,3 +1,120 @@
-body {
-    background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(img/projeto.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    width: 520px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: white;
+    padding: 30px 40px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+}
+
+.container h1{
+    font-size: 36px;
+    text-align: center;
+    color: rgb(105, 107, 107);
+}
+
+.container1{
+    width: 820px;
+    height: 90vh;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: white;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* espaço pra direita pro ícone */
+    height: 30px;
+    
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+}
+
+.container1 h1{
+    font-size: 36px;
+    text-align: center;
+    color: rgb(105, 107, 107)
+    
+}
+
+.container1 strong, p,b{
+    justify-content: space-between;
+    font-size: medium;
+    text-align: center;
+    margin-right: 10%;
+    color: rgb(105, 107, 107);
+}
+
+#segundo_lado{
+    margin-left: 20%;
+}
+#caixa_m{
+    width: 19.5%;
+}
+
+#datalocation{
+    margin-left: 3.8%;
+}
+
+.container1 input{
+    width: 40%;
+    height: 30px;
+    margin-left: 10%;
+    margin: 0.9px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}  
+
+.caixa_longa{
+    width: 80%;
+    height: 120px;
+    border-radius: 1%;
+}
+
+.container button{
+    position: relative;
+    width: 60%;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 20%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
