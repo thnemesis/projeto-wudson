@@ -9,7 +9,7 @@ def index(request):
 
 
 def create(request):
-    '''if request.method == 'POST':
+    if request.method == 'POST':
         form = CurriculoForm(request.POST)
         print('//////////////////////////////////////////////////////////////')
         print(form.is_valid())
@@ -24,8 +24,8 @@ def create(request):
     else:
         form = CurriculoForm()
 
-    return render(request,'create.html',{'form':form})'''
-    return render(request,'cadrastro.html',)
+    return render(request,'cadrastro.html',{'form':form})
+    
 
 def get_list(request):
     resumes = Curriculo.objects.all()
@@ -39,11 +39,15 @@ def get(request,pk):
 
 
 def search(request):
-    query = request.GET.get('q')
+    query = request.GET.get('q','')
     result = []
     if query:
         result = Curriculo.objects.filter(first_name__icontains=query)
-    return render(request, 'curriculum.html', {'c': result[0]})
+    if result:
+        c = result[0]
+    else:
+        c = None
+    return render(request, 'conclusao.html', {'c': c})
 
 
 

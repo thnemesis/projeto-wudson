@@ -19,7 +19,7 @@ class Address(models.Model):
 class Curriculo(models.Model):
     first_name = models.CharField(max_length=100,null=False,blank=False)
     last_name = models.CharField(max_length=100,null=False,blank=False)
-    phone_number = models.ForeignKey(Phone,null=False,blank=False,on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=100,null=False,blank=False)
     email = models.EmailField(max_length=100,null=False,blank=False)
     address = models.ForeignKey(Address,null=False,blank=False,on_delete=models.CASCADE)
     linkedin = models.URLField(blank=True, null=True)
