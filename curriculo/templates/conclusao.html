@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,7 +7,28 @@
     <title>Dread-Pixel</title>
 </head>
 <body>
-    <h1>{{ c.name }}</h1>
-    <h1>{{ c.phone_number }}</h1>
+    {% if c %}
+        <h1>{{ c.name }}</h1>
+        <h1>{{ c.phone_number }}</h1>
+        {% if not c.id%}
+            <form method="post" action="{% url 'salvar' %}">
+                {% csrf_token %}
+                <button type="submit">salvar</button>
+            </form>
+        {% else%}
+            <a href="{% url 'gerar_pdf' c.id %}">
+                <button>Baixar Currículo em PDF</button>
+            </a>
+        {% endif%}
+    {%else%}
+
+        <h1>Menhum corriculo encontrado</h1>
+    {% endif%}
+    {% if c%}
+        <div>
+            <a href="{% url 'index' %}">volta</a>
+        </div>
+    {%else%}
+    {% endif%}
 </body>
 </html>
