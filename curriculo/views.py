@@ -40,11 +40,12 @@ def get(request,pk):
 
 def search(request):
     query = request.GET.get('q','')
+    print(query)
     result = []
     if query:
-        result = Curriculo.objects.filter(first_name__icontains=query)
+        result = Curriculo.objects.filter(name__icontains=query)
     if result:
-        c = result[0]
+        c = result.first()
     else:
         c = None
     return render(request, 'conclusao.html', {'c': c})

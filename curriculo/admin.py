@@ -4,7 +4,7 @@ from curriculo.models  import Curriculo,Address,ProfessionalExperience,Phone,Aca
 # Register your models here.
 @admin.register(Curriculo)
 class CurriculoAdmin(admin.ModelAdmin):
-    list_display = ('id','first_name','last_name','email','phone_number')
+    list_display = ('id','name','email','phone_number')
 
 
 @admin.register(Phone)

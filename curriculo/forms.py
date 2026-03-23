@@ -7,14 +7,14 @@ class CurriculoForm(forms.ModelForm):
         model = Curriculo
         fields = '__all__'
         widgets = {
-            'first_name': forms.TextInput(attrs={
+            'name': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Digite seu nome'
             }),
 
-            'last_name': forms.TextInput(attrs={
+            'phone_number': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Digite seu sobrenome'
+                'placeholder': 'Digite seu Telefone'
             }),
 
             'email': forms.EmailInput(attrs={

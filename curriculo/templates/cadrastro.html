@@ -9,57 +9,54 @@
 </head>
 <body>
      <main class="container1">
-        <form method="post" action="{% url 'create'%}">
-            {% csrf_token %}
-            <h1>Digite os dados</h1>
-                <p>Todos os campos que estiver com o <i>simbolo *</i> são obrigatios</p>
-                <div class="input_dados">
+        <main class="container1">
+    <form method="post" action="{% url 'criar' %}">
+        {% csrf_token %}
 
-                    <strong>Digite seu primeiro nome *</strong><br>
-                    {{form.first_name}}
-                    <strong>Digite seu sobrenome *</strong><br>
-                    {{form.last_name}}
-                    <input type="text" name="endereco" placeholder="Endereço"><br>
+        <h1>Digite os dados</h1>
+        <p>Todos os campos com <i>*</i> são obrigatórios</p>
 
-                    <b>Telefone *</b>
-                    <b id="segundo_lado">E-mail</b><br>
-                    <input type="number" placeholder="Numero">
-                    <input type="email" placeholder="E-mail"><br><br>    
-                    
-                    <strong>Experiencia Proficional </strong>
-                    <strong id="datalocation">Data de inicio / fim *</strong><br>
+        <div class="input_dados">
 
-                    <input type="text" placeholder="Nome da empresa">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21"> <br> <br>
+            <strong>Nome *</strong><br>
+            {{ form.name }}<br>
 
-                    <strong>Experiencia Proficional </strong>
-                    <strong id="datalocation">Data de inicio / fim </strong><br>
+            <strong>Telefone *</strong><br>
+            {{ form.phone_number }}<br>
 
-                    <input type="text" placeholder="Nome da empresa">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21"> <br><br>
+            <strong>Endereço *</strong><br>
+            {{ form.address }}<br>
 
-                    <strong>Experiencia Proficional </strong>
-                    <strong id="datalocation">Data de inicio / fim </strong><br>
+            <strong id="segundo_lado">E-mail *</strong><br>
+            {{ form.email }}<br>
 
-                    <input type="text" placeholder="Nome da empresa">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21">
-                    <input id="caixa_m" type="date" placeholder="ex:01/01/21"> <br> <br>
+            <strong>LinkedIn</strong><br>
+            {{ form.linkedin }}<br>
 
-                    <strong>Educação</strong><br>
-                    <textarea class="caixa_longa" type="text"></textarea> <br><br>
+            <strong>GitHub</strong><br>
+            {{ form.github }}<br>
 
-                    <strong>Objetivo</strong><br>
-                    <textarea class="caixa_longa" type="text"></textarea> <br><br>
+            <strong>Objetivo *</strong><br>
+            {{ form.objective }}<br><br>
 
+            <strong>Resumo Profissional</strong><br>
+            {{ form.resume_professional }}<br><br>
 
-                    <button><a href="index.html">Voltar</a></button>
-                    <button><a href="curriculo.html">Proximo</a></button>
-                    
-                </div>
-        </form>
+            <strong>Habilidades</strong><br>
+            {{ form.ability }}<br><br>
 
+            <strong>Cursos e Certificações</strong><br>
+            {{ form.curse_certifications }}<br><br>
+
+            <strong>Idiomas</strong><br>
+            {{ form.Languages }}<br><br>
+
+            <a href="{% url 'index' %}">Voltar</a>
+            <button type="submit">Criar</button>
+
+        </div>
+    </form>
+</main>
     </main>
 </body>
 </html>

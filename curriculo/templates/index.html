@@ -10,16 +10,17 @@
 </head>
 <body>
     <main class="container">
-        <form method="get"  action="{% url 'search' %}">
-            <h1>Busque ou crie seu Currículo</h1>
+        <h1>Busque ou crie seu Currículo</h1>
+        <form method="get"  action="{% url 'pesquisar' %}">
+            
                 <div class="input-box">
-                    <input  name="name" type="text" placeholder="Digite seu nome" value="" >
+                    <input  name="q" type="text" placeholder="Digite seu nome" value="">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <button id="btngerar" type="submit" >Buscar seu currículo</button>
 
         </form>
-        <a href="{% url 'create'%}">Cria seu curriculo</a>
+        <a href="{% url 'novo'%}">Cria seu curriculo</a>
 
     </main>
 </body>

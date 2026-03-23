@@ -17,11 +17,10 @@ class Address(models.Model):
         return f'{self.city} - {self.uf}'
 
 class Curriculo(models.Model):
-    first_name = models.CharField(max_length=100,null=False,blank=False)
-    last_name = models.CharField(max_length=100,null=False,blank=False)
+    name = models.CharField(max_length=100,null=False,blank=False)
     phone_number = models.CharField(max_length=100,null=False,blank=False)
     email = models.EmailField(max_length=100,null=False,blank=False)
-    address = models.ForeignKey(Address,null=False,blank=False,on_delete=models.CASCADE)
+    address = models.CharField(max_length=100,null=False,blank=False)
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     objective = models.TextField(max_length=255,blank=False, null=False)
@@ -34,7 +33,7 @@ class Curriculo(models.Model):
 
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.name}'
 
 class AcademicEducation(models.Model):
     curriculo = models.ForeignKey(
