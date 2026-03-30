@@ -34,7 +34,7 @@ class CurriculoForm(forms.ModelForm):
 
             'objective': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 3,
+                'rows': 4,
                 'placeholder': 'Descreva seu objetivo profissional'
             }),
 
@@ -46,13 +46,13 @@ class CurriculoForm(forms.ModelForm):
 
             'ability': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 3,
+                'rows': 4,
                 'placeholder': 'Ex: Python, Django, JavaScript'
             }),
 
             'curse_certifications': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 3,
+                'rows': 4,
                 'placeholder': 'Cursos e certificações'
             }),
 

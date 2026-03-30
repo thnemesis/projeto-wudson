@@ -32,35 +32,67 @@ def get_list(request):
     return render(request, 'index.html', {'c': resumes})
 
 
-def get(request,pk):
-    resumes = Curriculo.objects.filter(id=pk)
-    print(resumes)
-    return render(request, 'curriculum.html', {'c': resumes[0]})
+def get(request, pk):
+    curriculo = Curriculo.objects.get(id=pk)
 
+    experiencia_lista = curriculo.resume_professional.split('\n') if curriculo.resume_professional else []
+    educacao_lista = curriculo.curse_certifications.split('\n') if curriculo.curse_certifications else []
+    habilidades_lista = curriculo.ability.split('\n') if curriculo.ability else []
+
+    return render(request, 'curriculo.html', {
+        'c': curriculo,
+        'experiencia_lista': experiencia_lista,
+        'educacao_lista': educacao_lista,
+        'habilidades_lista': habilidades_lista
+    })
 
 def search(request):
     query = request.GET.get('q','')
-    print(query)
     result = []
+
     if query:
         result = Curriculo.objects.filter(name__icontains=query)
+
     if result:
         c = result.first()
+
+        experiencia_lista = c.resume_professional.split('\n') if c.resume_professional else []
+        educacao_lista = c.curse_certifications.split('\n') if c.curse_certifications else []
+        habilidades_lista = c.ability.split('\n') if c.ability else []
+
     else:
         c = None
-    return render(request, 'conclusao.html', {'c': c})
+        experiencia_lista = []
+        educacao_lista = []
+        habilidades_lista = []
 
+    return render(request, 'curriculo.html', {
+        'c': c,
+        'experiencia_lista': experiencia_lista,
+        'educacao_lista': educacao_lista,
+        'habilidades_lista': habilidades_lista
+    })
 
 def resume(request):
-    return render(request, 'conclusao.html')
+    return render(request, 'curriculo.html')
 
 
 def confirmar(request):
     dados = request.session.get('curriculo')
+
     if not dados:
         return redirect('create')
-    return render(request,'conclusao.html',{'c':dados})
 
+    experiencia_lista = dados.get('resume_professional', '').split('\n')
+    educacao_lista = dados.get('curse_certifications', '').split('\n')
+    habilidades_lista = dados.get('ability', '').split('\n')
+
+    return render(request, 'curriculo.html', {
+        'c': dados,
+        'experiencia_lista': experiencia_lista,
+        'educacao_lista': educacao_lista,
+        'habilidades_lista': habilidades_lista
+    })
 
 def salvar(request):
     dados = request.session.get('curriculo')

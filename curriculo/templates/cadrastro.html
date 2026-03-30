@@ -15,40 +15,34 @@
 
         <h1>Digite os dados</h1>
         <p>Todos os campos com <i>*</i> são obrigatórios</p>
-
         <div class="input_dados">
 
-            <strong>Nome *</strong><br>
-            {{ form.name }}<br>
+            <strong>Nome *</strong>
+            <strong id="segundo_ladoT">Telefone *</strong><br>
+            {{ form.name }}
+            {{ form.phone_number }}<br><br>
 
-            <strong>Telefone *</strong><br>
-            {{ form.phone_number }}<br>
+            <strong >Endereço *</strong>
+            <strong id="segundo_ladoE">E-mail *</strong><br>
+            {{ form.address }}
+            {{ form.email }}<br><br>
 
-            <strong>Endereço *</strong><br>
-            {{ form.address }}<br>
+            <strong>LinkedIn</strong>
+            <strong id="segundo_ladoG">GitHub</strong><br>
+            {{ form.linkedin }}
+            {{ form.github }}<br><br>
 
-            <strong id="segundo_lado">E-mail *</strong><br>
-            {{ form.email }}<br>
-
-            <strong>LinkedIn</strong><br>
-            {{ form.linkedin }}<br>
-
-            <strong>GitHub</strong><br>
-            {{ form.github }}<br>
-
-            <strong>Objetivo *</strong><br>
-            {{ form.objective }}<br><br>
-
-            <strong>Resumo Profissional</strong><br>
+            <strong id="text_area">Objetivo *</strong>
+            <strong id="segundo_ladoE">Resumo Profissional</strong><br>
+            {{ form.objective }}
             {{ form.resume_professional }}<br><br>
 
-            <strong>Habilidades</strong><br>
-            {{ form.ability }}<br><br>
-
-            <strong>Cursos e Certificações</strong><br>
+            <strong id="text_area">Habilidades</strong>
+            <strong id="segundo_ladoE">Cursos e Certificações</strong><br>
+            {{ form.ability }}
             {{ form.curse_certifications }}<br><br>
 
-            <strong>Idiomas</strong><br>
+            <strong id="text_area">Idiomas</strong><br>
             {{ form.Languages }}<br><br>
 
             <a href="{% url 'index' %}">Voltar</a>

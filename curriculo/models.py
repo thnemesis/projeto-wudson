@@ -24,9 +24,9 @@ class Curriculo(models.Model):
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     objective = models.TextField(max_length=255,blank=False, null=False)
-    resume_professional = models.TextField(max_length=100,blank=True, null=True)
+    resume_professional = models.TextField(max_length=500,blank=True, null=True)
     ability = models.TextField(max_length=255,blank=True, null=True)
-    curse_certifications = models.TextField(max_length=255,blank=True, null=True)
+    curse_certifications = models.TextField(max_length=455,blank=True, null=True)
     Languages = models.CharField(max_length=100,blank=True, null=True)
 
 

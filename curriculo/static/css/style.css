@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(img/projeto.png);
+    background: url(img/backnetworking.png);
     background-size: cover;
     background-position: center;
 }
@@ -82,9 +82,18 @@ body{
     color: rgb(105, 107, 107);
 }
 
-#segundo_lado{
-    margin-left: 20%;
+#segundo_ladoT{
+    margin-left: 22%;
 }
+
+#segundo_ladoE{
+    margin-left: 18%;
+}
+
+#segundo_ladoG{
+    margin-left: 21%;
+}
+
 #caixa_m{
     width: 19.5%;
 }
@@ -102,10 +111,10 @@ body{
     border-radius: 10px;
 }  
 
-.caixa_longa{
-    width: 80%;
-    height: 120px;
-    border-radius: 1%;
+.input_dados #text_area{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .container button{
