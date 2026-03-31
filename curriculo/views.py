@@ -24,7 +24,7 @@ def create(request):
     else:
         form = CurriculoForm()
 
-    return render(request,'cadrastro.html',{'form':form})
+    return render(request,'curriculo.html',{'form':form})
     
 
 def get_list(request):
@@ -49,22 +49,24 @@ def get(request, pk):
 def search(request):
     query = request.GET.get('q','')
     result = []
+    c = None
+    experiencia_lista = []
+    educacao_lista = []
+    habilidades_lista = []
 
     if query:
         result = Curriculo.objects.filter(name__icontains=query)
 
+
     if result:
         c = result.first()
-
+        print('c',c)
         experiencia_lista = c.resume_professional.split('\n') if c.resume_professional else []
         educacao_lista = c.curse_certifications.split('\n') if c.curse_certifications else []
         habilidades_lista = c.ability.split('\n') if c.ability else []
 
     else:
-        c = None
-        experiencia_lista = []
-        educacao_lista = []
-        habilidades_lista = []
+        return render(request, 'vazio.html')
 
     return render(request, 'curriculo.html', {
         'c': c,
@@ -103,9 +105,29 @@ def salvar(request):
         # limpa a sessão
         del request.session['curriculo']
 
-        return redirect('index')
+        return redirect('concluido')
+    
+    return redirect('n_salvo')
+    
+def concluido(request):
+    return render(request, 'final_tela.html')  
 
-    return redirect('create')
+def n_salvo(request):
+    return render(request, 'n_salvo.html') 
+
+
+def novo(request):
+    if request.method == 'POST':
+        form = CurriculoForm(request.POST)
+        if form.is_valid():
+            request.session['curriculo'] = form.cleaned_data
+            return redirect('confirmar')
+        else:
+            if form.errors:
+                print(form.errors)
+    else:
+        form = CurriculoForm()
+    return render(request, 'cadastro.html', {'form': form})
 
 def gerar_pdf(request, id):
     curriculo = get_object_or_404(Curriculo, id=id)

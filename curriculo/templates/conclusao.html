@@ -8,11 +8,13 @@
     <title>Dread-Pixel</title>
 </head>
 <body>
+    <h1>{{ c }}</h1>
+    <h1>teste</h1>
     {% if c %}
         <h1>{{ c.name }}</h1>
         <h1>{{ c.phone_number }}</h1>
         {% if not c.id%}
-            <form method="post" action="{% url 'salvar' %}">
+            <form method="post" action="{% url 'salvar' %}">0
                 {% csrf_token %}
                 <button type="submit">salvar</button>
             </form>
@@ -22,7 +24,6 @@
             </a>
         {% endif%}
     {%else%}
-
         <h1>Nenhum currículo encontrado.</h1>
     {% endif%}
     {% if c%}
