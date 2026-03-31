@@ -8,48 +8,78 @@
     <title>Dread-Pixel</title>
 </head>
 <body>
-     <main class="container1">
-        
+
+<main class="container1">
     <form method="post" action="{% url 'criar' %}">
         {% csrf_token %}
 
         <h1>Digite os dados</h1>
         <p>Todos os campos com <i>*</i> são obrigatórios</p>
+
         <div class="input_dados">
 
-            <strong>Nome *</strong>
-            <strong id="segundo_ladoT">Telefone *</strong><br>
-            {{ form.name }}
-            {{ form.phone_number }}<br><br>
+            <div class="campo">
+                <strong>Nome *</strong>
+                {{ form.name }}
+            </div>
 
-            <strong >Endereço *</strong>
-            <strong id="segundo_ladoE">E-mail *</strong><br>
-            {{ form.address }}
-            {{ form.email }}<br><br>
+            <div class="campo">
+                <strong>Telefone *</strong>
+                {{ form.phone_number }}
+            </div>
 
-            <strong>LinkedIn</strong>
-            <strong id="segundo_ladoG">GitHub</strong><br>
-            {{ form.linkedin }}
-            {{ form.github }}<br><br>
+            <div class="campo">
+                <strong>Endereço *</strong>
+                {{ form.address }}
+            </div>
 
-            <strong id="text_area">Objetivo *</strong>
-            <strong id="segundo_ladoE">Resumo Profissional</strong><br>
-            {{ form.objective }}
-            {{ form.resume_professional }}<br><br>
+            <div class="campo">
+                <strong>E-mail *</strong>
+                {{ form.email }}
+            </div>
 
-            <strong id="text_area">Habilidades</strong>
-            <strong id="segundo_ladoE">Cursos e Certificações</strong><br>
-            {{ form.ability }}
-            {{ form.curse_certifications }}<br><br>
+            <div class="campo">
+                <strong>LinkedIn</strong>
+                {{ form.linkedin }}
+            </div>
 
-            <strong id="text_area">Idiomas</strong><br>
-            {{ form.Languages }}<br><br>
+            <div class="campo">
+                <strong>GitHub</strong>
+                {{ form.github }}
+            </div>
 
-            <a href="{% url 'index' %}">Voltar</a>
+            <div class="campo full">
+                <strong>Objetivo *</strong>
+                {{ form.objective }}
+            </div>
+
+            <div class="campo full">
+                <strong>Resumo Profissional</strong>
+                {{ form.resume_professional }}
+            </div>
+
+            <div class="campo full">
+                <strong>Habilidades</strong>
+                {{ form.ability }}
+            </div>
+
+            <div class="campo full">
+                <strong>Cursos e Certificações</strong>
+                {{ form.curse_certifications }}
+            </div>
+
+            <div class="campo full">
+                <strong>Idiomas</strong>
+                {{ form.Languages }}
+            </div>
             <button type="submit">Criar</button>
+
+            
+            <a href="{% url 'index' %}">Voltar</a>
 
         </div>
     </form>
-    </main>
+</main>
+
 </body>
 </html>

@@ -4,13 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>  
+    <title>Currículo Criado | Dread-Pixel</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <div>
-        <h1>Curriculo criado com sucesso!</h1><br><br>
+    <main class="container1">
+        <div style="text-align:center;">
+            <h1>Currículo criado com sucesso!</h1>
+            <p>Você pode gerar o PDF do seu currículo abaixo:</p>
+
+            <!-- Botão para imprimir PDF -->
+            <button onclick="baixarPDF()" class="pdf-button">Baixar / Imprimir PDF</button>
+
+            <div style="margin-top:10px;">
+                <a href="{% url 'index' %}" class="novo-curriculo">Gerar novo currículo</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Conteúdo do currículo invisível -->
+    <div id="curriculo" style="display:none;">
+        <main class="container">
+            <header class="header">
+                <h1 class="name">{{ c.name }}</h1>
+                <ul class="contact-info">
+                    <li><strong>Endereço:</strong> {{ c.address }}</li>
+                    <li><strong>Telefone:</strong> {{ c.phone_number }}</li>
+                    <li><strong>E-mail:</strong> {{ c.email }}</li>
+                    <li><strong>LinkedIn:</strong> {{ c.linkedin }}</li>
+                    <li><strong>GitHub:</strong> {{ c.github }}</li>
+                </ul>
+            </header>
+
+            <section class="section">
+                <h3 class="section-title">Objetivo</h3>
+                <p>{{ c.objective }}</p>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">Educação</h3>
+                <ul>
+                    {% for item in educacao_lista %}
+                        {% if item %}
+                            <li>{{ item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">Habilidades</h3>
+                <ul>
+                    {% for item in habilidades_lista %}
+                        {% if item %}
+                            <li>{{ item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">Experiência Profissional</h3>
+                <ul>
+                    {% for item in experiencia_lista %}
+                        {% if item %}
+                            <li>{{ item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+        </main>
     </div>
-    <a href="{% url 'index' %}">Gerar novo curriculo</a>
+
+    <!-- Script jsPDF -->
+    <script>
+        function baixarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const elementHTML = document.querySelector('#curriculo');
+
+            doc.html(elementHTML, {
+                callback: function(doc) {
+                    doc.save("curriculo.pdf");
+                },
+                x: 10,
+                y: 10,
+                html2canvas: { scale: 0.5 }
+            });
+        }
+    </script>
 </body>
 </html>
